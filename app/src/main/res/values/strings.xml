@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Crud</string>
+    <string name="Authontification">Authontification</string>
+    <string name="lgin">Login :</string>
+    <string name="Password">Password :</string>
+    <string name="enter_your_email_here">Enter your email here</string>
+    <string name="hint_password">Enter your password here</string>
+    <string name="bLogin">Login</string>
+    <string name="SignUp">SignUp</string>
 </resources>
