@@ -7,4 +7,9 @@
     <string name="hint_password">Enter your password here</string>
     <string name="bLogin">Login</string>
     <string name="SignUp">SignUp</string>
+    <string name="Sign_Up">Sign Up</string>
+    <string name="Name">Name</string>
+    <string name="Name1">Name :</string>
+    <string name="Email">Email :</string>
+    <string name="Password1">Password :</string>
 </resources>
