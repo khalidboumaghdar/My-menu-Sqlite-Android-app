@@ -23,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
         etpassword = findViewById(R.id.etpassword);
         bLogin = findViewById(R.id.bLogin);
         bSignUp = findViewById(R.id.bSignUp);
+        bLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,MainActivityAffichage.class));
+            }
+        });
 
         bSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

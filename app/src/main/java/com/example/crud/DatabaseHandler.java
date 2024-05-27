@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHandler extends SQLiteOpenHelper {
     private  static  final  int DATABASE_VERSION=1;
     private  static  final  String DATABASE_NAME= "Gestion_Client.db";
@@ -34,6 +37,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CLIENT);
         onCreate(db);
     }
+    public List<Client> getAllClients(){
+        List<Client> clientList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT * FROM " + TABLE_CLIENT;
+        Cursor cursor = db.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            do{
+                Client client = new Client();
+                client.setId(cursor.getInt(0));
+                client.setName(cursor.getString(1));
+                client.setEmail(cursor.getString(2));
+                client.setPassword(cursor.getString(3));
+                clientList.add(client);
+            } while (cursor.moveToNext()); // Correct loop condition
+        }
+        cursor.close(); // Don't forget to close the cursor
+        return clientList;
+    }
+
     Client getClient(String email){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor;

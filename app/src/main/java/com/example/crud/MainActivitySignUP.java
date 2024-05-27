@@ -1,10 +1,13 @@
 package com.example.crud;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,10 +41,39 @@ public class MainActivitySignUP extends AppCompatActivity {
         To_validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Insert","Inserting ....");
-                Client client = new Client(editName1.getText().toString(), editEmail.getText().toString(), editPasswordd.getText().toString());
-                db.addClient(client);
-                Log.d("Insert","Inserting ...."+client.toString());
+                String name,email ,password;
+                name = String.valueOf(editName1.getText());
+                email = String.valueOf(editEmail.getText());
+                password = String.valueOf(editPasswordd.getText());
+                if(TextUtils.isEmpty(name))
+                {
+                    Toast.makeText(MainActivitySignUP.this, "Enter your name",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                else if(TextUtils.isEmpty(email))
+                {
+                    Toast.makeText(MainActivitySignUP.this, "Enter your Email",Toast.LENGTH_SHORT).show();
+                    return;
+
+                }else if(TextUtils.isEmpty(password))
+                {
+                    Toast.makeText(MainActivitySignUP.this, "Enter your Password",Toast.LENGTH_SHORT).show();
+                    return;
+
+                }else{
+                    Log.d("Insert","Inserting ....");
+                    Client client = new Client();
+                    db.addClient(client);
+                    Log.d("Insert","Inserting ...."+client.toString());
+                    startActivity(new Intent(MainActivitySignUP.this, MainActivity.class));
+
+                }
+
+
+
+
+
             }
         });
     }

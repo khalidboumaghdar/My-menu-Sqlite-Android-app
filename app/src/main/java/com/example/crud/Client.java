@@ -6,7 +6,7 @@ public class Client {
     String Email;
     String Password;
 
-
+    public Client() {}
 
     public Client(String name, String email, String password) {
         this.name = name;
