@@ -2,7 +2,10 @@ package com.example.crud;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -20,8 +23,11 @@ public class MainActivityAffichage extends AppCompatActivity {
     DatabaseHandler db;
     String dataListe = "";
     TextView txtaficher;
+    Button btn_add;
+
     TableRow tableRow;
     TableLayout tableLayout;
+    Button btn_delete;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,6 +49,8 @@ public class MainActivityAffichage extends AppCompatActivity {
         });
         txtaficher = findViewById(R.id.txtaficher1);
         tableLayout = findViewById(R.id.tableLayout);
+        btn_add = findViewById(R.id.btn_add);
+        btn_delete = findViewById(R.id.btn_delete);
         DatabaseHandler db = new DatabaseHandler(this);
         List<Client> clientList = db.getAllClients();
 
@@ -63,16 +71,32 @@ public class MainActivityAffichage extends AppCompatActivity {
             emailTextView.setPadding(8, 8, 8, 8);
 
             TextView passwordTextView = new TextView(this);
-            passwordTextView.setText(client.getPassword()); // Corrected to show password
+            passwordTextView.setText(client.getPassword());
             passwordTextView.setPadding(8, 8, 8, 8);
+
+
 
             tableRow.addView(idTextView);
             tableRow.addView(nameTextView);
             tableRow.addView(emailTextView);
             tableRow.addView(passwordTextView);
 
+
             tableLayout.addView(tableRow);
         }
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivityAffichage.this,MainActivitySignUP.class));
+            }
+        });
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivityAffichage.this,MainActivityDelete.class));
+            }
+        });
+
 
 
 

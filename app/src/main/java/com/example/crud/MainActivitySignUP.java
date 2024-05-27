@@ -41,33 +41,29 @@ public class MainActivitySignUP extends AppCompatActivity {
         To_validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name,email ,password;
-                name = String.valueOf(editName1.getText());
-                email = String.valueOf(editEmail.getText());
-                password = String.valueOf(editPasswordd.getText());
-                if(TextUtils.isEmpty(name))
-                {
-                    Toast.makeText(MainActivitySignUP.this, "Enter your name",Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                String name = editName1.getText().toString();
+                String email = editEmail.getText().toString();
+                String password = editPasswordd.getText().toString();
 
-                else if(TextUtils.isEmpty(email))
-                {
-                    Toast.makeText(MainActivitySignUP.this, "Enter your Email",Toast.LENGTH_SHORT).show();
+                if(TextUtils.isEmpty(name)) {
+                    Toast.makeText(MainActivitySignUP.this, "Enter your name", Toast.LENGTH_SHORT).show();
                     return;
-
-                }else if(TextUtils.isEmpty(password))
-                {
-                    Toast.makeText(MainActivitySignUP.this, "Enter your Password",Toast.LENGTH_SHORT).show();
+                } else if(TextUtils.isEmpty(email)) {
+                    Toast.makeText(MainActivitySignUP.this, "Enter your Email", Toast.LENGTH_SHORT).show();
                     return;
-
-                }else{
-                    Log.d("Insert","Inserting ....");
+                } else if(TextUtils.isEmpty(password)) {
+                    Toast.makeText(MainActivitySignUP.this, "Enter your Password", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    Log.d("Insert", "Inserting ....");
                     Client client = new Client();
-                    db.addClient(client);
-                    Log.d("Insert","Inserting ...."+client.toString());
-                    startActivity(new Intent(MainActivitySignUP.this, MainActivity.class));
+                    client.setName(name); // Set name
+                    client.setEmail(email); // Set email
+                    client.setPassword(password); // Set password
 
+                    db.addClient(client); // Add client to database
+                    Log.d("Insert", "Inserted: " + client.toString());
+                    startActivity(new Intent(MainActivitySignUP.this, MainActivity.class));
                 }
 
 

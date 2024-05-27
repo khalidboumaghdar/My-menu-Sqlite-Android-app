@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -71,6 +72,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public  void  addClient(Client client){
         SQLiteDatabase db  = this.getReadableDatabase();
         ContentValues values = new ContentValues();
+
         values.put("name",client.getName());
         values.put("email",client.getEmail());
         values.put("password",client.getPassword());
@@ -78,6 +80,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
 
     }
+    public void suppClient(String clientName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_CLIENT, "name = ?", new String[]{clientName});
+        db.close();
+    }
+
+
+
 
 
 }
