@@ -8,93 +8,106 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityAffichage">
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="1"
-        tools:ignore="MissingConstraints">
-
-        <TableRow tools:ignore="UselessParent">
-
-            <TextView
-                android:id="@+id/txtaficher1"
-                android:layout_column="0"
-                android:background="#CCCCCC"
-                android:padding="8dp"
-                android:text="Name"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/txtaficher2"
-                android:layout_column="1"
-                android:background="#CCCCCC"
-                android:padding="8dp"
-                android:text="Email"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/textaficher3"
-                android:layout_column="2"
-                android:background="#CCCCCC"
-                android:padding="8dp"
-                android:text="Password"
-                tools:ignore="HardcodedText" />
-        </TableRow>
-
-        <!-- Additional rows will be added programmatically in Java -->
-
-    </TableLayout>
-
-    <Button
-        android:id="@+id/btn_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="540dp"
-        android:layout_marginEnd="16dp"
-        android:text="Add"
-        app:layout_constraintEnd_toStartOf="@+id/btn_updaye"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttons_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/btn_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="548dp"
-        android:layout_marginEnd="350dp"
-        android:text="Delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.667"
-        app:layout_constraintStart_toEndOf="@+id/btn_updaye"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1"
+            tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/btn_updaye"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="213dp"
-        android:layout_marginTop="540dp"
-        android:layout_marginEnd="24dp"
-        android:text="Update"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_add"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        tools:ignore="MissingConstraints" />
+            <TableRow tools:ignore="UselessParent">
+                <TextView
+                    android:id="@+id/txtid"
+                    android:layout_column="0"
+                    android:background="#CCCCCC"
+                    android:padding="8dp"
+                    android:text="ID"
+                    tools:ignore="HardcodedText" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/txtaficher1"
+                    android:layout_column="0"
+                    android:background="#CCCCCC"
+                    android:padding="8dp"
+                    android:text="Name"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/txtaficher2"
+                    android:layout_column="1"
+                    android:background="#CCCCCC"
+                    android:padding="8dp"
+                    android:text="Email"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/textaficher3"
+                    android:layout_column="2"
+                    android:background="#CCCCCC"
+                    android:padding="8dp"
+                    android:text="Password"
+                    tools:ignore="HardcodedText" />
+            </TableRow>
+
+            <!-- Additional rows will be added programmatically in Java -->
+
+        </TableLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="187dp"
-        android:layout_marginTop="226dp"
-        android:layout_marginEnd="268dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView">
 
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Add"
+            app:layout_constraintEnd_toStartOf="@+id/btn_update"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_update"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Update"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintStart_toEndOf="@+id/btn_add"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
