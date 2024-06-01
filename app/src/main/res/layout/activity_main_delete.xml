@@ -29,6 +29,7 @@
         android:layout_marginTop="111dp"
         android:layout_marginEnd="112dp"
         android:layout_marginBottom="65dp"
+        android:hint="@string/enter_your_name_hrer"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btn_delete1"

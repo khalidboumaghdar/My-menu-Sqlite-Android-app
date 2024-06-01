@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#0C0C0C"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0C0C0C"
-    tools:context=".MainActivitySignUP">
-
+    tools:context=".MainActivityADD">
     <TextView
-        android:id="@+id/textSignUP"
+        android:id="@+id/txtadd"
         android:layout_width="131dp"
         android:layout_height="58dp"
         android:layout_marginStart="32dp"
@@ -18,7 +17,7 @@
         android:layout_marginBottom="24dp"
         android:fontFamily="@font/alfa_slab_one"
         android:rotationX="-4"
-        android:text="@string/SignUp"
+        android:text="@string/add_client"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -30,7 +29,7 @@
         app:layout_constraintVertical_bias="0.095" />
 
     <TextView
-        android:id="@+id/txtName"
+        android:id="@+id/txtName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -39,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textSignUP" />
+        app:layout_constraintTop_toBottomOf="@+id/txtadd" />
 
     <TextView
         android:id="@+id/textView"
@@ -52,10 +51,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtName1" />
 
     <TextView
-        android:id="@+id/txtPassword"
+        android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -68,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editName1"
+        android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -82,11 +81,12 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toEndOf="@+id/txtName"
-        app:layout_constraintTop_toBottomOf="@+id/textSignUP" />
+        app:layout_constraintStart_toEndOf="@+id/txtName1"
+        app:layout_constraintTop_toBottomOf="@+id/txtadd"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/editEmail"
+        android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -97,10 +97,11 @@
         android:textColor="#ECECEC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/editName1" />
+        app:layout_constraintTop_toBottomOf="@+id/Name"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/editPasswordd"
+        android:id="@+id/editPasswordd1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="23dp"
@@ -110,19 +111,20 @@
         android:inputType="textPassword"
         android:textColor="#FDFCFC"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+        app:layout_constraintStart_toEndOf="@+id/Password"
+        app:layout_constraintTop_toBottomOf="@+id/Email"
+        android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/To_validate"
+        android:id="@+id/To_validate1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="278dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
-        android:text="To validate"
+        android:text="@string/to_validate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPasswordd" />
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

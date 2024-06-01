@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Crud</string>
+    <string name="app_name">Examan</string>
     <string name="Authontification">Authontification</string>
     <string name="lgin">Login :</string>
     <string name="Password">Password :</string>
@@ -12,4 +12,32 @@
     <string name="Name1">Name :</string>
     <string name="Email">Email :</string>
     <string name="Password1">Password :</string>
+    <string name="enter_your_name_hrer">Enter your name hrer</string>
+    <string name="update_client">Update Client</string>
+    <string name="enter_client_password">Enter client password</string>
+    <string name="enter_client_email">Enter client email</string>
+    <string name="enter_client_name">Enter client name</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
+    <string name="item1">Calculatrice</string>
+    <string name="item2">Température</string>
+    <string name="item3">Gestion client</string>
+    <string name="item4">Ajouter</string>
+    <string name="item5">Modifier</string>
+    <string name="item6">Supprimer</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to login</string>
+    <string name="register_btn">Register</string>
+    <string name="click_to_register">click to Register</string>
+    <string name="logout">Logout</string>
+    <string name="enter_your_id">Enter Your ID</string>
+    <string name="enter_your_name">Enter Your name</string>
+    <string name="update_client1">Update Client</string>
+    <string name="liste_client">Liste Client</string>
+    <string name="add_client">Add Client</string>
+    <string name="to_validate">To validate</string>
 </resources>

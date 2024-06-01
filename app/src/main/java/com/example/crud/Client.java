@@ -7,6 +7,10 @@ public class Client {
     String Password;
 
     public Client() {}
+    public Client(String email, String password) {
+        this.Email = email;
+        this.Password = password;
+    }
 
     public Client(String name, String email, String password) {
         this.name = name;

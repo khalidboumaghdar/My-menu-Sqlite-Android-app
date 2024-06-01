@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Crud"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivityADD"
+            android:exported="false" />
+        <activity
+            android:name=".TemperatureCalcActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityCalc"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityHome"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityUpdate"
+            android:exported="false" />
+        <activity
             android:name=".MainActivityDelete"
             android:exported="false" />
         <activity
