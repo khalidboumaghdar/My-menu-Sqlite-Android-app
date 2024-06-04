@@ -1,5 +1,6 @@
 package com.example.crud;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +15,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivityUpdate extends AppCompatActivity {
      DatabaseHandler db;
-     EditText Name;
-     EditText Email;
-     EditText Password;
-     Button btn_update;
+     EditText clientIdInput;
+     EditText clientNameInput;
+     EditText clientEmailInput;
+     EditText clientPasswordInput;
+     Button updateClientButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,28 +31,63 @@ public class MainActivityUpdate extends AppCompatActivity {
             return insets;
         });
         db = new DatabaseHandler(this);
-        Name = findViewById(R.id.client_name_input);
-        Email = findViewById(R.id.client_email_input);
-        Email = findViewById(R.id.client_password_input);
-        btn_update = findViewById(R.id.update_client_button);
-        btn_update.setOnClickListener(new View.OnClickListener() {
+
+        clientIdInput = findViewById(R.id.client_id_input);
+        clientNameInput = findViewById(R.id.clientNameInput);
+        clientEmailInput = findViewById(R.id.clientEmailInput);
+        clientPasswordInput = findViewById(R.id.client_password_input);
+        updateClientButton = findViewById(R.id.update_client_button);
+
+        db = new DatabaseHandler(this);
+
+        updateClientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String clientName = Name.getText().toString().trim();
-                String clientEmail = Email.getText().toString().trim();
-                String clientPassword = Email.getText().toString().trim();
+                if (!clientIdInput.getText().toString().isEmpty()) {
+                    int clientId = Integer.parseInt(clientIdInput.getText().toString());
+                    String name = clientNameInput.getText().toString();
+                    String email = clientEmailInput.getText().toString();
+                    String password = clientPasswordInput.getText().toString();
 
-                if (!clientName.isEmpty() && !clientEmail.isEmpty() && !clientPassword.isEmpty()) {
-                    Client client = new Client(clientName, clientEmail, clientPassword);
-                    db.updateClient(client);
-                    Toast.makeText(MainActivityUpdate.this, "Client updated", Toast.LENGTH_SHORT).show();
+                    Client client = new Client();
+                    client.setId(clientId);
+                    client.setName(name);
+                    client.setEmail(email);
+                    client.setPassword(password);
+
+                    updateClient(client);
                 } else {
-                    Toast.makeText(MainActivityUpdate.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivityUpdate.this, "Please enter a valid client ID", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
+        // Fetch client data automatically if an ID is provided
+        clientIdInput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && !clientIdInput.getText().toString().isEmpty()) {
+                    int clientId = Integer.parseInt(clientIdInput.getText().toString());
+                    retrieveClient(clientId);
+                }
+            }
+        });
+    }
 
+    private void updateClient(Client client) {
+        db.updateClient(client);
+        Toast.makeText(MainActivityUpdate.this, "Client updated successfully", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(MainActivityUpdate.this,MainActivityAffichage.class));
+    }
+
+    private void retrieveClient(int clientId) {
+        Client client = db.getClientById(clientId);
+        if (client != null) {
+            clientNameInput.setText(client.getName());
+            clientEmailInput.setText(client.getEmail());
+            clientPasswordInput.setText(client.getPassword());
+        } else {
+            Toast.makeText(MainActivityUpdate.this, "Client not found", Toast.LENGTH_SHORT).show();
+        }
     }
 }

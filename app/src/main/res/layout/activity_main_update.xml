@@ -11,7 +11,7 @@
     tools:layout_editor_absoluteY="-80dp">
 
     <EditText
-        android:id="@+id/client_name_input"
+        android:id="@+id/client_id_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/client_password_input"
@@ -32,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/client_email_input" />
+        app:layout_constraintTop_toBottomOf="@id/clientNameInput" />
 
     <Button
         android:id="@+id/update_client_button"
@@ -47,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@id/client_password_input" />
 
     <EditText
-        android:id="@+id/client_email_input"
+        android:id="@+id/clientNameInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -56,10 +57,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/client_name_input" />
+        app:layout_constraintTop_toBottomOf="@id/client_id_input" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/clientEmailInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -68,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/client_name_input" />
+        app:layout_constraintTop_toBottomOf="@id/client_id_input" />
 
     <TextView
         android:id="@+id/txttitle"

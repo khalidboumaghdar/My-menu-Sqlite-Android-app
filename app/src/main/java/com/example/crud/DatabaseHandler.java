@@ -106,8 +106,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put("email", client.getEmail());
         values.put("password", client.getPassword());
 
-        // Update the client where the name matches
-        db.update(TABLE_CLIENT, values, "name = ?", new String[]{client.getName()});
+        // Update the client where the ID matches
+        db.update(TABLE_CLIENT, values, "id = ?", new String[]{String.valueOf(client.getId())});
         db.close();
     }
 
@@ -141,6 +141,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("UPDATE " + TABLE_CLIENT + " SET " + COLUMN_Client_SESSION + " = 0");
         db.close();
+    }
+    public Client getClientById(int clientId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_CLIENT, new String[]{"id", "name", "email", "password"},
+                "id = ?", new String[]{String.valueOf(clientId)}, null, null, null);
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                int idIndex = cursor.getColumnIndex("id");
+                int nameIndex = cursor.getColumnIndex("name");
+                int emailIndex = cursor.getColumnIndex("email");
+                int passwordIndex = cursor.getColumnIndex("password");
+
+                if (idIndex != -1 && nameIndex != -1 && emailIndex != -1 && passwordIndex != -1) {
+                    Client client = new Client();
+                    client.setId(cursor.getInt(idIndex));
+                    client.setName(cursor.getString(nameIndex));
+                    client.setEmail(cursor.getString(emailIndex));
+                    client.setPassword(cursor.getString(passwordIndex));
+                    cursor.close();
+                    return client;
+                }
+            }
+            cursor.close();
+        }
+        return null;
     }
 
 }

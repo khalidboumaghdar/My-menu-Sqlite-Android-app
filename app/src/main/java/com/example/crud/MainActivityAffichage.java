@@ -98,7 +98,7 @@ public class MainActivityAffichage extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivityAffichage.this,MainActivitySignUP.class));
+                startActivity(new Intent(MainActivityAffichage.this,MainActivityADD.class));
             }
         });
         btn_delete.setOnClickListener(new View.OnClickListener() {
